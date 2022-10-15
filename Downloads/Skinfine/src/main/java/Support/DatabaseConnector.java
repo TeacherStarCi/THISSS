@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnector {
     public static Connection makeConnection()
             throws SQLException, ClassNotFoundException {
-        String url = "jdbc:sqlserver://localhost:1433;databaseName=Articloke";
+        String url = "jdbc:sqlserver://localhost:1433;databaseName=Skinfine";
         Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         return DriverManager.getConnection(url, "sa", "12345");
     }

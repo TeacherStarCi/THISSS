@@ -95,12 +95,79 @@
                     </div>
                 </div>
             </div>
-            <div class ="position-relative" style ="width:100%;height: 200px; background: #F7ECE9;"> 
+            <div class ="position-relative" style ="width:100%;height: 100px; background: #F7ECE9;"> 
             </div>
         </div>
 
+        <div class = "position-relative m-0 p-0" style = "width: 100%;height: 250px;background: #F7ECE9">   
+            <div class ="text-center" style = "font-weight: bold;font-family: 'Inria Serif'; font-size: 4rem" > Advertisement </div>
+        </div>   
 
 
+
+        <div class = "position-relative m-0 p-0" style = "width: 100%;height: 900px;background: #F7ECE9">   
+            <div class ="row position-relative" style = "height: 100%">
+                <div class ="col-6 position-relative p-0">
+                    <div style ="height: 600px; width: 70%; top: 150px; background: #FCF9F1" class = "p-5 float-end position-relative">
+                        <div class ="h2" style = " font-family: 'Inria Serif' ">${applicationScope.ads.get(0).cosmeticName} </div> 
+                        <div class ="h5" style = " font-family: 'Inria Serif' "> Introduced by ${applicationScope.ads.get(0).advertiserName}</div> 
+  <div class ="h5 mt-5" style = " font-family: 'Montserrat' "> Brand: ${applicationScope.ads.get(0).brandName}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Category: ${applicationScope.ads.get(0).category}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Skin Type: ${applicationScope.ads.get(0).skinType}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Usage: ${applicationScope.ads.get(0).usage}</div> 
+  <div class ="h4 mt-5" style = " font-family: 'Montserrat' "> Price: $ ${applicationScope.ads.get(0).unitPrice} </div>
+  
+  <a href = "${applicationScope.ads.get(0).description}">
+        <div class = "position-relative shadow" style = "background: #FCF9F1 ;width: 200px; height: 80px">
+                        <div class ="position-absolute h4 custom-center custom-no-break" style = "font-family: 'Montserrat'">
+                           More Info
+                        </div>
+                    </div>
+  </a> 
+  
+                    </div>
+                </div>
+                <div class ="col-6 position-relative p-0">
+                    <div style  ="height: 600px; width: 70%; top: -100px" class = "position-relative">
+                        <img src ="${applicationScope.ads.get(0).photo}" class = "img-fluid">
+
+                    </div>
+                </div>
+            </div>
+        </div>   
+
+
+        <div class = "position-relative m-0 p-0" style = "width: 100%;height: 900px;background: #F7ECE9">   
+            <div class ="row position-relative" style = "height: 100%">
+                <div class ="col-6 position-relative p-0">
+                    <div style ="height: 600px; width: 70%; border:1px solid; top: 150px" class = "float-end position-relative">
+                 <img src ="${applicationScope.ads.get(1).photo}" class = "img-fluid">
+                    </div>
+                </div>
+                <div class ="col-6 position-relative p-0">
+                  
+                       <div style ="height: 600px; width: 70%; background: #FCF9F1" class = "p-5 position-relative">
+                        <div class ="h2" style = " font-family: 'Inria Serif' ">${applicationScope.ads.get(1).cosmeticName} </div> 
+                        <div class ="h5" style = " font-family: 'Inria Serif' "> Introduced by ${applicationScope.ads.get(1).advertiserName}</div> 
+  <div class ="h5 mt-5" style = " font-family: 'Montserrat' "> Brand: ${applicationScope.ads.get(1).brandName}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Category: ${applicationScope.ads.get(1).category}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Skin Type: ${applicationScope.ads.get(1).skinType}</div> 
+  <div class ="h5" style = " font-family: 'Montserrat' "> Usage: ${applicationScope.ads.get(1).usage}</div> 
+  <div class ="h4 mt-5" style = " font-family: 'Montserrat' "> Price: $ ${applicationScope.ads.get(1).unitPrice} </div>
+  
+  <a href = "${applicationScope.ads.get(1).description}">
+        <div class = "position-relative shadow" style = "background: #FCF9F1 ;width: 200px; height: 80px">
+                        <div class ="position-absolute h4 custom-center custom-no-break" style = "font-family: 'Montserrat'">
+                           More Info
+                        </div>
+                    </div>
+  </a> 
+  
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>   
 
 
         <div class = "position-relative m-0 p-0" style = "width: 100%;height: 600px;background: #F7ECE9"> 
@@ -136,22 +203,22 @@
                     <div class = "mt-3"> 
                         <span class = "position-relative d-inline-block" style = "margin-right: 16px"> 0981130351 </span> 
                         <img src ="Image/Call.png" class ="position-relative d-inline-block" style ="bottom: 2px; width: 16px; height: 16px">
-                        </div> 
+                    </div> 
                     <div class = "mt-1">  
-                    <span class = "position-relative d-inline-block" style = "margin-right: 16px"> Skinfine Vietnam </span> 
-                    <img src ="Image/Facebook.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
+                        <span class = "position-relative d-inline-block" style = "margin-right: 16px"> Skinfine Vietnam </span> 
+                        <img src ="Image/Facebook.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
                     </div>
 
-                 <div class = "mt-1">  
-                    <span class = "position-relative d-inline-block" style = "margin-right: 16px"> skinfine.vietnam@gmail.com </span> 
-                    <img src ="Image/Gmail.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
+                    <div class = "mt-1">  
+                        <span class = "position-relative d-inline-block" style = "margin-right: 16px"> skinfine.vietnam@gmail.com </span> 
+                        <img src ="Image/Gmail.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
                     </div>
-                       <div class = "mt-1">  
-                    <span class = "position-relative d-inline-block" style = "margin-right: 16px"> S7.05, Vinhomes Grand Park, Ho Chi Minh City </span> 
-                    <img src ="Image/Location.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
+                    <div class = "mt-1">  
+                        <span class = "position-relative d-inline-block" style = "margin-right: 16px"> S7.05, Vinhomes Grand Park, Ho Chi Minh City </span> 
+                        <img src ="Image/Location.png" class ="position-relative d-inline-block" style ="bottom: 4px; width: 20px; height: 20px">
                     </div>
-      
-             </div>
+
+                </div>
             </div> 
         </div>
     </div>      
