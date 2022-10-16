@@ -1,20 +1,49 @@
 package Controllers;
+
+import Repository.Register.RegisterDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Date;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class SubmitRegisterServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String URL = "";
+        String URL = "Home.jsp";
         try {
-            // code get Parameters ...
-            
+            String skinType = request.getParameter("skinType");
+            String[] skinProblems = request.getParameterValues("skinProblem");
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String phoneNumber = request.getParameter("phoneNumber");
+            String timeZone = request.getParameter("timeZone");
+            Date date = Date.valueOf(request.getParameter("bookDate"));
+            String currentID = null;
+             
+            try {
+                currentID = RegisterDAO.getNextID();
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+            try {
+                RegisterDAO.addRegister(skinType, firstName, lastName, phoneNumber, timeZone, date);
+            } catch (SQLException | ClassNotFoundException ex) {
+            }
+
+            for (String skinProblem : skinProblems) {
+                try {
+                    RegisterDAO.addSkinProblem(currentID, skinProblem);
+                } catch (SQLException | ClassNotFoundException ex) {
+                }
+            }
+
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(URL);
             rd.forward(request, response);

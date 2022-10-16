@@ -1,7 +1,9 @@
 package Repository.Advertisement;
 
+import Repository.Register.RegisterDTO;
 import Support.DatabaseConnector;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,36 +12,44 @@ import java.util.List;
 
 public class AdvertisementDAO {
 
-    public static List<AdvertisementDTO> getAds() throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT CosmeticID, CosmeticName, Category, AdvertiserName, UnitPrice, Photo,\n"
-                + "SkinType, BrandName, Description, Usage\n"
-                + "FROM Cosmetic INNER JOIN Advertiser\n"
-                + "ON Cosmetic.AdvertiserID = Advertiser.AdvertiserID";
-        List<AdvertisementDTO> ads = new ArrayList<>();
+    public static List<AdvertiserDTO> getAdvertiser() throws SQLException, ClassNotFoundException {
+        String SQL1 = "SELECT advertiserID, advertiserName FROM Advertiser";
+        String SQL2 = "SELECT * FROM Cosmetic WHERE advertiserID = ?";
+
+        List<AdvertiserDTO> ads = new ArrayList<>();
         Connection con = null;
         PreparedStatement pre = null;
-
+        PreparedStatement pre2 = null;
         ResultSet res = null;
+        ResultSet res2 = null;
         try {
             con = DatabaseConnector.makeConnection();
-            pre = con.prepareStatement(SQL);
+            pre = con.prepareStatement(SQL1);
             res = pre.executeQuery();
 
             while (res.next()) {
-                String cosmeticID = res.getString("CosmeticID");
-                String cosmeticName = res.getString("CosmeticName");
-                String category = res.getString("Category");
                 String advertiserName = res.getString("AdvertiserName");
-                float unitPrice = res.getFloat("UnitPrice");
-                String photo = res.getString("Photo");
-                String usage = res.getString("Usage");
-                String skinType = res.getString("SkinType");
-                String brandName = res.getString("BrandName");
-                String description = res.getString("Description");
-                
-             
-                ads.add(new AdvertisementDTO(cosmeticID, cosmeticName, brandName, category, advertiserName, unitPrice, photo, usage, skinType, description));
-            }   
+                String advertiserID = res.getString("AdvertiserID");
+                List<CosmeticDTO> cosmetics = new ArrayList<>();
+                pre2 = con.prepareStatement(SQL2);
+                pre2.setString(1, advertiserID);
+                res2 = pre2.executeQuery();
+                while (res2.next()) {
+                    String cosmeticID = res2.getString("cosmeticID");
+                    String cosmeticName = res2.getString("cosmeticName");
+                    String category = res2.getString("category");
+                    float unitPrice = res2.getFloat("unitPrice");
+                    String photo = res2.getString("photo");
+                    String usage = res2.getString("usage");
+                    String skinType = res2.getString("skinType");
+                    String brandName = res2.getString("brandName");
+                    String description = res2.getString("description");
+                    CosmeticDTO cosmetic = new CosmeticDTO(cosmeticID, cosmeticName, category, advertiserID, unitPrice, photo, usage, skinType, brandName, description);
+                    cosmetics.add(cosmetic);
+                }
+                ads.add(new AdvertiserDTO(advertiserName, cosmetics));
+
+            }
         } finally {
             if (con != null) {
                 con.close();
@@ -57,4 +67,5 @@ public class AdvertisementDAO {
         return ads;
 
     }
+
 }

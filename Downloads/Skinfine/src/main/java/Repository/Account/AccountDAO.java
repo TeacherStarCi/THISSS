@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class AccountDAO implements Serializable{
      public static AccountDTO getAccount(String username, String password) throws SQLException, ClassNotFoundException{
-    String SQL = "";
+    String SQL = "SELECT * FROM Account WHERE Username = ? AND Password = ?";
         AccountDTO user = null;
         Connection con = null;
         PreparedStatement pre = null;
@@ -23,7 +23,12 @@ public class AccountDAO implements Serializable{
             res = pre.executeQuery();
 
             while (res.next()) {
-               
+               String username_ = res.getString("Username");
+               String password_ = res.getString("Password");
+               String role = res.getString("Role");
+               String firstName = res.getString("FirstName");
+               String lastName = res.getString("LastName");
+               user = new AccountDTO(username_, password_, role, firstName, lastName);
             }
         } finally {
             if (con != null) {

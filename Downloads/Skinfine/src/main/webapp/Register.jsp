@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/Custom.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link
+        href="https://fonts.googleapis.com/css?family=Raleway"
+        rel="stylesheet"
+        />
+    <link rel="stylesheet" href="CSS/Custom.css" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
+        />
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Title</title>
-    <link href='https://fonts.googleapis.com/css?family=Inria Serif' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link
+        href="https://fonts.googleapis.com/css?family=Inria Serif"
+        rel="stylesheet"
+        />
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat"
+        rel="stylesheet"
+        />
     <style>
         * {
             box-sizing: border-box;
@@ -49,8 +65,8 @@
         }
 
         button {
-            background-color: #04AA6D;
-            color: #ffffff;
+            background-color: #f7ece9;
+            color: #000;
             border: none;
             padding: 10px 20px;
             font-size: 17px;
@@ -84,160 +100,377 @@
 
         /* Mark the steps that are finished and valid: */
         .step.finish {
-            background-color: #04AA6D;
+            background-color: #f7ece9;
         }
     </style>
     <body>
-
-        <form id="regForm" action="/action_page.php">
-            <div>  </div>
+        <form id="regForm" action="SubmitRegisterServlet">
+            <div></div>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
-                <%--  <p><input placeholder="First name..." oninput="this.className = ''" name="fname"></p> --%>
-                <%--  <p><input placeholder="Last name..." oninput="this.className = ''" name="lname"></p> --%>
-                <div class = "row position-relative">
-                    <div class = "h1 position-relative custom-horizontal-center text-center" style = "font-family: 'Inria Serif';font-weight:  bolder">
-                        Choose Your Skin Type
-                    </div>
-                    <div class = "col-4 p-3 position-relative">
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'">   Normal Skin </span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">  A 'normal' skin type means that your skin is balanced and do not have any uncomfortable issues
-                            </span>
-                        </div> 
-                    </div>
 
-                    <div class = "col-4 p-3 position-relative">     
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'"> Oily Skin </span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">  Your skin produces excess sebum year-round, you are likely in the 'oily' skin type group
-                            </span>
-                        </div> 
-                    </div>
+                <div id="radios">
+                    <div class="row position-relative">
+                        <div
+                            class="h1 position-relative custom-horizontal-center text-center"
+                            style="font-family: 'Inria Serif'; font-weight: bolder"
+                            >
+                            Choose Your Skin Type
+                        </div>
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="normal" id="r1" checked="checked" />
+                            <label class="label-container" for="r1">
+                                <img class="" src="Image/nor.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Normal Skin
+                                    </span>
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        A 'normal' skin type means that your skin is balanced and do not
+                                        have any uncomfortable issues
+                                    </span>
 
-                    <div class = "col-4 p-3 position-relative">
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'">  Dry Skin</span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">    Dry skin looks and feels rough and dull, sometimes also appearing red or flaky. 
-                            </span>
-                        </div> 
-                    </div>
+                                </div>
+                            </label>
+                        </div>
 
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="oily" id="r2" />
+                            <label class="label-container" for="r2">
+                                <img class="" src="Image/oil.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Oily Skin
+                                    </span>
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        Your skin produces excess sebum year-round, you are likely in
+                                        the 'oily' skin type group
+                                    </span>
+
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="dry" id="r3" />
+                            <label class="label-container" for="r3">
+                                <img class="" src="Image/dry.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Dry Skin</span
+                                    >
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        Dry skin looks and feels rough and dull, sometimes also
+                                        appearing red or flaky.
+                                    </span>
+
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="combination" id="r4" />
+                            <label class="label-container" for="r4">
+                                <img class="" src="Image/combination.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Combination Skin</span
+                                    >
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        As the name implies, combination skin has oily and dry
+                                        characteristics.
+                                    </span>
+                                </div>   
+                            </label>
+                        </div>
+
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="sensitive" id="r5" />
+                            <label class="label-container" for="r5">
+                                <img class="" src="Image/sensitive.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Sensitive Skin
+                                    </span>
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        Signs of sensitive skin come from the breakdown of your skin's
+                                        protective barrier.
+                                    </span>
+
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="col-4 p-3 position-relative">
+                            <input type="radio" name="skinType" value="unknown" id="r6" />
+                            <label class="label-container" for="r6">
+                                <img class="" src="Image/unknown.png" alt="" srcset="" />
+                                <div
+                                    class="p-3 position-relative shadow"
+                                    style="height: 150px; border-radius: 5px"
+                                    >
+                                    <span class="h5" style="font-family: 'Inria Serif'">
+                                        Unknown
+                                    </span>
+                                    <br />
+                                    <span style="font-size: 12px; font-family: 'Montserrat'">
+                                        Select this option if you do not understand well about your
+                                        skin.
+                                    </span>
+
+                                </div>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-                <div class = "row">
+            </div>
 
-                    <div class = "col-4 p-3 position-relative">
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'">     Combination Skin</span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">     As the name implies, combination skin has oily and dry characteristics. 
-                            </span>
-                        </div> 
+            <div class="tab">
+                <div id ="checkboxs">
+                    <div
+                        class="h1 text-center position-relative"
+                        style="font-family: 'Inria Serif'; font-weight: bolder"
+                        >
+                        What Is Your Skin Problem?
                     </div>
 
-                    <div class = "col-4 p-3 position-relative">
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'">     Sensitive Skin </span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">     Signs of sensitive skin come from the breakdown of your skin's protective barrier.
-                            </span>
-                        </div> 
+                    <div class="row mt-5">
+                        
+                        <div class="col-4 position-relative" style="height: 80px">
+                         
+                            <input type="checkbox" name="skinProblem" value="acnes" id="c1" />
+                            <label class="label-container" for="c1">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Acnes
+                                </div>
+                            </div>
+                            </label>
+                        </div>
+                        <div class="col-4 position-relative" style="height: 80px">
+                         <input type="checkbox" name="skinProblem" value="wrinkles" id="c2" />
+                            <label class="label-container" for="c2">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Wrinkles
+                      
+                                </div>
+                            </div>
+                            </label>
+                        </div>
+                        <div class="col-4 position-relative" style="height: 80px">
+                           <input type="checkbox" name="skinProblem" value="dryskin" id="c3" />
+                            <label class="label-container" for="c3">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div
+                                    class="position-absolute custom-center"
+                                    style="
+                                    height: 60px;
+                                    width: 120px;
+                                    border-radius: 10px;
+                                    background: #fcf9f1;
+                                    "
+                                    >
+                                    <div class="position-absolute custom-center">
+                                        Dryskin
+                                 
+                                    </div>
+                                </div>
+                            </div>
+                            </label>
+                        </div>
                     </div>
-
-                    <div class = "col-4 p-3 position-relative">
-                        <div class = "p-3 position-relative shadow" style = "height: 150px; border-radius:  5px">
-                            <span class = "h5" style = "font-family: 'Inria Serif'">     Unknown </span> <br>
-                            <span style = "font-size: 12px; font-family: 'Montserrat'">   
-                                Select this option if you do not understand well about your skin.
-                            </span>
-                        </div> 
+                    <div class="row">
+                        <div class="col-4 position-relative" style="height: 80px">
+                          <input type="checkbox" name="skinProblem" value="blackhead" id="c4" />
+                            <label class="label-container" for="c4">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Blackhead
+                              
+                                </div>
+                            </div>
+                            </label>
+                        </div>
+                        <div class="col-4 position-relative" style="height: 80px">
+                             <input type="checkbox" name="skinProblem" value="sunburn" id="c5" />
+                            <label class="label-container" for="c5">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Sunburn
+                           
+                                </div>
+                            </div>
+                            </label>
+                        </div>
+                        <div class="col-4 position-relative" style="height: 80px">
+                               <input type="checkbox" name="skinProblem" value="freckles" id="c6" />
+                            <label class="label-container" for="c6">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Freckles
+                              
+                                </div>
+                            </div>
+                            </label>
+                        </div>
                     </div>
-
+                    <div class="row">
+                       
+                        <div class="col-4 position-relative" style="height: 80px">
+                            <input type="checkbox" name="skinProblem" value="other" id="c7" />
+                            <label class="label-container" for="c7">
+                            <div
+                                class="position-absolute custom-center"
+                                style="
+                                height: 60px;
+                                width: 120px;
+                                border-radius: 10px;
+                                background: #fcf9f1;
+                                "
+                                >
+                                <div class="position-absolute custom-center">
+                                    Other
+                        
+                                </div>
+                            </div>
+                                 </label>
+                        </div>
+                           
+                    </div>
                 </div>
             </div>
             <div class="tab">
-                <%--   <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p> --%>
-                <%--   <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p> --%>
-                <div class = "h1 text-center position-relative" style = "font-family: 'Inria Serif';font-weight:  bolder"> What Is Your Skin Problem? </div>
-                <div class ="row mt-3">
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-                            <div class ="position-absolute custom-center">  Acnes
-                            </div>  
-                        </div>   
-                    </div>
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-
-                            <div class ="position-absolute custom-center">   Wrinkles
-                            </div>  
-                        </div>   
-                    </div>
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-                            <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-
-                                <div class ="position-absolute custom-center">    Dryskin
-                                </div>  
-                            </div>  
-
-                        </div>   
-                    </div>
-
+                <div
+                    class="h1 text-center position-relative"
+                    style="font-family: 'Inria Serif'; font-weight: bolder"
+                    >
+                    Leave Your Information Here
                 </div>
-                <div class ="row">
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
+                   
+                <div class ="d-flex mt-5 justify-content-between">
+                    <input class="d-flex form-control" style ="width: 49.5%"
+                        placeholder="First Name"
+                        name="firstName" value =""
+                        >
 
-                            <div class ="position-absolute custom-center">     Blackhead
-                            </div> 
-                        </div>   
-                    </div>
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-
-                            <div class ="position-absolute custom-center">    Sunburn
-                            </div> 
-                        </div>   
-                    </div>
-                    <div class ="col-4 position-relative" style = "height: 80px"> 
-                        <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-                            <div class ="position-absolute custom-center">   Freckles
-                            </div>   
-                        </div>   
-                    </div>
-
+                       <input class="d-flex form-control position-relative" style ="width: 49.5%; float:right"
+                        placeholder="Last Name"
+                        name="lastName" value =""
+                        >
+                       
                 </div>
-                <div class ="row">
-                    <div class ="offset-4 col-4 position-relative" style = "height: 80px"> 
-                          <div class = "position-absolute custom-center" style = "height: 60px; width: 120px; border-radius: 10px; background: #FCF9F1">
-                          <div class ="position-absolute custom-center">  Other
-                            </div>   
-                        </div>    
-                    </div>
+               <input class="form-control position-relative mt-2 "
+                        placeholder="Phone Number"
+                        name="phoneNumber"
+                        >
+                <div class ="d-flex my-3 justify-content-between">
+                    <div style = "width: 50%" >
+                        <div class = "d-inline-block"> Contact Time Zone: </div>
+                <select name ="timeZone" class = "form-control d-inline-block" style = "width: 65.5%">
+                    <option value = "7AM - 10AM">7AM - 10AM</option>
+                    <option value = "2PM - 5PM">2PM - 5PM</option>
+                    <option value = "7PM - 10PM">7PM - 10PM</option>
+                </select>
+                       
+                   </div> 
+                    <input type="Date" class ="form-control" style ="width: 49.5%" name ="bookDate" value =""
+                        >
                 </div>
+               
             </div>
             <div class="tab">
-                 <div class = "h1 text-center position-relative" style = "font-family: 'Inria Serif';font-weight:  bolder"> Leave Your Information Here </div>
-             <p><input placeholder="Your Name" oninput="this.className = ''" name="email"></p>
-               <p><input placeholder="Your Phone Number" oninput="this.className = ''" name="email"></p>
-              Contact Time Zone: <select>
-                       <option> 7AM - 10AM </option>
-                        <option> 2PM - 5PM</option>
-                         <option> 7PM - 10PM </option>
-                   </select>
-               <input type ="date">
-             
+              <div
+                    class="h1 text-center position-relative"
+                    style="font-family: 'Inria Serif'; font-weight: bolder"
+                    >
+                   Thank You For Filling The Form
+                </div>
+  
+                   If submitted, our Dermatologist will try to contact you after that
+               
+          
             </div>
-            <div class="tab">
-                <div> Thank You. Our Dermatologists Will Contact You Soon.</div>
-            </div>
-            <div style="overflow:auto;">
-                <div style="float:right;">
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+              
+            <div style="overflow: auto">
+                <div style="float: right; position: relative; right: 5px">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">
+                        Previous
+                    </button>
                     <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
                 </div>
             </div>
             <!-- Circles which indicates the steps of the form: -->
-            <div style="text-align:center;margin-top:40px;">
+            <div style="text-align: center; margin-top: 40px">
                 <span class="step"></span>
                 <span class="step"></span>
                 <span class="step"></span>
@@ -259,13 +492,13 @@
                 } else {
                     document.getElementById("prevBtn").style.display = "inline";
                 }
-                if (n == (x.length - 1)) {
+                if (n == x.length - 1) {
                     document.getElementById("nextBtn").innerHTML = "Submit";
                 } else {
                     document.getElementById("nextBtn").innerHTML = "Next";
                 }
                 //... and run a function that will display the correct step indicator:
-                fixStepIndicator(n)
+                fixStepIndicator(n);
             }
 
             function nextPrev(n) {
@@ -290,7 +523,10 @@
 
             function validateForm() {
                 // This function deals with validation of the form fields
-                var x, y, i, valid = true;
+                var x,
+                        y,
+                        i,
+                        valid = true;
                 x = document.getElementsByClassName("tab");
                 y = x[currentTab].getElementsByTagName("input");
                 // A loop that checks every input field in the current tab:
@@ -305,14 +541,16 @@
                 }
                 // If the valid status is true, mark the step as finished and valid:
                 if (valid) {
-                    document.getElementsByClassName("step")[currentTab].className += " finish";
+                    document.getElementsByClassName("step")[currentTab].className +=
+                            " finish";
                 }
                 return valid; // return the valid status
             }
 
             function fixStepIndicator(n) {
                 // This function removes the "active" class of all steps...
-                var i, x = document.getElementsByClassName("step");
+                var i,
+                        x = document.getElementsByClassName("step");
                 for (i = 0; i < x.length; i++) {
                     x[i].className = x[i].className.replace(" active", "");
                 }
@@ -320,6 +558,5 @@
                 x[n].className += " active";
             }
         </script>
-
     </body>
 </html>

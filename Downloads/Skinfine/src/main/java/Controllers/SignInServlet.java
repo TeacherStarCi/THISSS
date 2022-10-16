@@ -28,7 +28,7 @@ public class SignInServlet extends HttpServlet {
         if (user != null) {
         HttpSession session = request.getSession();
         session.setAttribute("user", user);
-        URL = "Profile.jsp";
+        URL = "Home.jsp";
         } else {
         request.setAttribute("incorrectAuthInputFlag", true);
         }
